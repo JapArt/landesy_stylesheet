@@ -1,0 +1,332 @@
+@import "neat";
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700|Open+Sans:400,700');
+
+$main-color: rgb(240, 209, 1);
+$text-color: rgb(43, 53, 66);
+$button-color : $main-color;
+$info-color: rgb(0, 172, 237);
+$border-color: rgb(222, 222, 222);
+
+$quicksand: 'Quicksand', sans-serif;
+
+$tablet: 768px;
+$laptop: 1024px;
+
+$neat-grid: (
+  columns: 12,
+  gutter: 30px,
+);
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: $quicksand
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: rgb(247, 248, 250)
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  -webkit-appearance: none;
+  &:focus {
+    outline:0;
+  }
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.container {
+  position: relative;
+  @include grid-container;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+nav {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  height: 60px;
+  background-color: white;
+  .logo {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    padding: 12px 0 0 15px;
+    overflow: hidden;
+    a {
+      img {
+        width: 140px;
+      }
+    }
+    button {
+      position: absolute;
+      top: 16px;
+      border: 0;
+      background-color: white;
+      i {
+        font-size: 190%;
+      }
+    }
+    button#search-button {
+      right: 70px;
+    }
+    button#nav-button {
+      right: 20px;
+    }
+  }
+  #search-nav {
+    position: relative;
+    display: none;
+    width: 100%;
+    background-color: $text-color;
+    padding: 10px 5vw;
+    form {
+      padding-top: 10px;
+      i {
+        position: absolute;
+        top: 31px;
+        left: 7vw;
+      }
+      input {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid $border-color;
+        padding: 10px 15px 10px 27px;
+        font-weight: 700;
+        &:focus {
+          border-color: $main-color;
+        }
+      }
+    }
+  }
+  #nav-links {
+    position: relative;
+    display: none;
+    background-color: $text-color;
+    padding-bottom: 10px;
+    z-index: 100;
+    a {
+      display: block;
+      width: 100%;
+      padding: 13px 30px;
+      font-weight: 700;
+      color: white;
+      font-family: $quicksand;
+    }
+    .divider {
+      width: 100%;
+      border: 1px solid gray;
+    }
+    a.user-nav {
+      position: relative;
+      padding-left: 67px;
+      padding-top: 20px;
+      height: 50px;
+      .user-thumb {
+        display: block;
+        position: absolute;
+        top:15px;
+        left: 30px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50px;
+        overflow: hidden;
+        img {
+         width: 30px;
+        }
+      }
+    }
+  }
+  @media (min-width: $tablet){
+    border-bottom: 1px solid $border-color;
+    .logo {
+      position: relative;
+      width: 100%;
+      height: 60px;
+      padding: 12px 0 0 40px;
+      overflow: hidden;
+      button#nav-button, #search-button {
+        display: none;
+      }
+    }
+    #search-nav {
+      position: absolute;
+      top: 0;
+      left: 220px;
+      display: block;
+      height: 50px;
+      width: 300px;
+      background-color: white;
+      padding: 0;
+      form {
+        padding-top: 10px;
+        i {
+          position: absolute;
+          top: 21px;
+          left: 10px;
+        }
+        input {
+          width: 100%;
+          border-radius: 5px;
+          border: 1px solid $border-color;
+          padding: 10px 15px 10px 27px;
+          font-weight: 700;
+          &:focus {
+            border-color: $main-color;
+          }
+        }
+      }
+    }
+    #nav-links {
+      display: block;
+      background-color: transparent;
+      text-align: right;
+      position: absolute;
+      right: 30px;
+      top: 0;
+      height: 60px;
+      a {
+        width: auto;
+        float: left;
+        color: lighten($text-color, 20%);
+        height: 60px;
+        padding: 20px 15px;
+        &:hover {
+          color: $text-color;
+          i {
+            color: lighten($main-color, 5%);
+          }
+        }
+      }
+      a.user-nav {
+        position: relative;
+        padding-left: 60px;
+        padding-top: 20px;
+        height: 60px;
+        .user-thumb {
+          display: block;
+          position: absolute;
+          top:10px;
+          left: 15px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50px;
+          overflow: hidden;
+          img {
+           width: 40px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.clearfix {
+  width: 100%;
+  overflow: auto;
+  zoom: 1;
+}
+
+.thumb-circle {
+  width:50px;
+  height: 50px;
+  display: block;
+  float: left;
+  margin-right: 10px;
+  border-radius: 50px;
+  overflow: hidden;
+  border: 2px solid $border-color;
+  img {
+    width: 50px;
+  }
+}
+
+.field {
+  width: 100%;
+  margin: 10px 0;
+  label {
+    font-weight: 700;
+  }
+  p.hint {
+    margin: 0;
+  }
+  input, textarea {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+    padding: 10px 15px;
+    font-size: 110%;
+    margin-top: 10px;
+  }
+}
+.actions {
+  margin-top: 20px;
+  .btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 120%;
+    font-weight: 700;
+    min-width: 200px
+  }
+}
+
+.checkbox_label {
+  padding-left: 0px;
+  font-weight: 700;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  padding-top: 10px;
+}
+
+label {
+  text-transform: none !important;
+  text-decoration: none;
+}
+
+span.nsfw {
+  padding: 3px;
+  background-color: rgb(247, 74, 74);
+  color: white;
+  border-radius: 3px;
+  font-size: 80%;
+}
+
+@import "alerts";
+@import "buttons";
+@import "comments";
+@import "icons";
+@import "pages";
+@import "posts";
+@import "selectize";
+@import "topics";
+@import "users";

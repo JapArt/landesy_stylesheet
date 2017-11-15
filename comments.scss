@@ -1,0 +1,79 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_comment {
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  textarea {
+    width: 100%;
+  }
+}
+
+.comments {
+  margin-bottom: 50px;
+}
+
+.comment {
+  overflow: auto;
+  width: 100%;
+  padding: 10px 0;
+  .comment-body {
+    min-height: 50px;
+    .user-avatar {
+      display: block;
+      float: left;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 50px;
+      margin-right: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    span {
+      font-weight: 700;
+      font-size: 80%;
+      i {
+        color: gray;
+      }
+    }
+    p {
+      margin: 0;
+      font-size: 90%;
+    }
+  }
+}
+
+.reply-form {
+  display: none;
+}
+
+.comment-replies {
+  padding: 10px 0 0px 30px;
+  border-left: 2px solid $border-color;
+  .comment {
+    border-bottom: 0;
+  }
+}
+
+.comment-replies .comment-replies {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.comment-links {
+  font-size: 85%;
+  padding-left: 60px;
+  a {
+    margin-right: 10px;
+    color: gray;
+    font-weight: 700;
+    &:hover {
+      color: $text-color;
+    }
+  }
+}

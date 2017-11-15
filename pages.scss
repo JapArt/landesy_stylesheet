@@ -1,0 +1,10 @@
+.rules {
+  @include grid-column(12);
+  background-color: white;
+  padding: 30px;
+  ul {
+    li {
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -1,0 +1,324 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pagination {
+  height: 40px;
+  display: none;
+}
+
+.topics {
+  display: none;
+  padding-top: 40px;
+  @media (min-width: $tablet){
+    display: block;
+    @include grid-column(3);
+  }
+  h3 {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  a {
+    width: 100%;
+    display: block;
+    background-color: white;
+    margin-bottom: 5px;
+    color: $text-color;
+    p {
+      margin: 0;
+      padding-top: 13px;
+      font-weight: 700;
+    }
+    .thumb-circle {
+      border-radius: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.posts {
+  width: 100%;
+  padding-top: 40px;
+  overflow: auto;
+  @media (min-width: $tablet){
+    @include grid-column(9);
+  }
+}
+
+.post {
+  width: 95vw;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: white;
+  height: auto;
+  @include box-shadow(1px, 1px, 3px, rgba(0, 0, 0, 0.2));
+  // POST BODY
+  @media (min-width: $tablet){
+    float: left;
+    width: calc((100% / 3) - 20px);
+    margin: 0px 10px 30px;
+    height: 400px;
+  }
+
+  .title {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    padding: 0px 10px 10px;
+    height: auto;
+    span.new_post {
+      position: absolute;
+      right: 10px;
+      top: 7px;
+      background-color: lighten($main-color, 20%);
+      font-size: 70%;
+      font-family: $quicksand;
+      font-weight: 700;
+      padding: 3px 5px;
+      border-radius: 3px;
+    }
+    p.topic {
+      margin-top: 0px;
+      display: inline;
+      font-size: 85%;
+      color: $main-color;
+      font-weight: 700;
+      a { color: lighten($text-color, 20%);;}
+    }
+    h2, p {
+      margin: 0;
+    }
+    h2 {
+      margin: 5px 0;
+      font-size: 110%;
+    }
+    a {
+      color: $text-color;
+      &:hover {
+        color: $info-color;
+      }
+      h2 {
+        margin-bottom: 5px;
+      }
+    }
+    a.post-source, a.user {
+      font-size: 80%;
+      font-weight: 700;
+      color: $info-color;
+    }
+    @media (min-width: $tablet){
+      padding: 7px 10px 20px;
+      height: 160px;
+      h2 {
+        margin: 5px 0;
+      }
+    }
+  }
+  .post-image {
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    @media (min-width: $tablet){
+      margin-bottom: 0px;
+    }
+  }
+  .post-details {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    overflow: auto;
+    height: 40px;
+    padding-left: 5px;
+    a {
+      display: block;
+      float: left;
+      font-weight: 700;
+      font-size: 90%;
+      color: gray;
+      margin-right: 7px;
+      margin-top: 5px;
+      @media (min-width: $tablet){
+        font-size: 90%;
+      }
+      span {
+        position: relative;
+        display: inline-block;
+        top: -4px;
+      }
+    }
+    a.add-kudo {
+      color: rgb(238, 37, 61);
+    }
+    a.n_comments {
+      &:hover {
+        color: $main-color;
+      }
+    }
+    a.facebook {
+      &:hover {
+        color: rgb(59,89,152);
+      }
+    }
+    a.twitter {
+      &:hover {
+        color: $info-color;
+      }
+    }
+    a:last-child {
+      border-right: 0px;
+    }
+    a.user {
+      position: absolute;
+      top: 0;
+      right: 7px;
+      display: block;
+      color: lighten($text-color, 20%);
+      margin-top: 0px;
+      margin-right: 0;
+      span {
+        position: relative;
+        display: block;
+        float: left;
+        margin-top: 9px;
+        margin-right: 5px;
+      }
+      .user-avatar {
+        display: block;
+        float: left;
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        border-radius: 50px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.posts-side {
+  display: none;
+  @media (min-width: $tablet){
+    display: block;
+    @include grid-column(3);
+    padding-top: 40px;
+    .btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.posts_show {
+  @include grid-column(6);
+  padding-top: 40px;
+  .post {
+    width: 100%;
+    height: auto;
+    .title {
+      position: relative;
+      z-index: 2;
+      background-color: white;
+      padding: 20px 10px 10px;
+      height: auto;
+    }
+    .post-image {
+      min-height: 200px;
+      height: auto;
+      img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.new_post_container {
+  background-color: white;
+  margin-top: 30px;
+  border-radius: 5px;
+  margin-bottom: 100px;
+  padding: 20px 20px;
+  form {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    .post-files {
+      width: 100%;
+      height: 200px;
+      background-color: white;
+      text-align: center;
+    }
+    #error_explanation {
+      width: 100%;
+      background-color: rgb(255, 66, 66);
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      margin-bottom: 15px;
+      h2 {
+        font-size: 120%;
+      }
+    }
+    #dropzone {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border: 3px dashed $border-color;
+      border-radius: 5px;
+      p {
+        margin-top: 50px;
+      }
+      i {
+        font-size: 300%;
+      }
+      .dz-image {
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    @media (min-width: $tablet){
+      @include grid-column(6);
+    }
+  }
+  .post-info {
+    img {
+      display: none;
+    }
+    a {
+      color: $info-color;
+    }
+    @media (min-width: $tablet){
+      @include grid-column(6);
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  @media (min-width: $tablet){
+    @include grid-container;
+    @include grid-column(8);
+    @include grid-push(2);
+  }
+}
