@@ -1,4 +1,5 @@
-# landesy_stylesheet
+# Landesy stylesheet dependencies:
+
 This are the files that cover the CSS of landesy.com
 
 - For the responsive grid I used [Neat](https://neat.bourbon.io/)
