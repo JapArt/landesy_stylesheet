@@ -1,4 +1,4 @@
-# Landesy stylesheet dependencies:
+# Landesy stylesheet
 
 This are the files that cover the CSS of landesy.com
 
